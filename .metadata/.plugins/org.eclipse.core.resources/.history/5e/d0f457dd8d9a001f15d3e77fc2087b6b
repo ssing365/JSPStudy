@@ -1,0 +1,12 @@
+package membership;
+
+import common.JDBConnect;
+
+public class MemberDAO extends JDBConnect{
+	//생성자1 : 드라이버, 커넥션URL등 4개의 매개변수로 정의
+	public MemberDAO(String drv, String url, String id, String pw) {
+		//super()를 통해 부모클래스(JDBConnect)의 생성자를 호출한다.
+		//super ctrl누르고 클릭하면 이동됨
+		super(drv, url, id , pw); 
+	}
+}
