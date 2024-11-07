@@ -1,0 +1,29 @@
+package servlet;
+
+import java.io.IOException;
+
+/*
+ * 서블릿 클래스를 만들기 위한 절차
+ * 1. HttpServlet 클래스 상속
+ * 2. 클라의 요청을 받아 처리하기 위한 doGet() / doPost() 메서드를 오버라이딩
+ * 3. 서블릿에 필수적인 패키지 임포트와 예외처리는 자동완성됨
+ * 4. request내장객체와 response내장객체는 매개변수를 통해 서블릿 클래스에 
+ * 이미 포함되어 있으므로 즉시 사용할 수 있다.
+ */
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class HelloServlet extends HttpServlet{
+	//서블릿 작성 시 발생되는 경고를 위해 추가.
+	private static final long serialVersionUID = 1L; 
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
+		req.setAttribute("message", "Hello Servlet..!! ");
+		req.getRequestDispatcher("/12Servlet/HelloServlet.jsp").forward(req, resp);
+	}
+}

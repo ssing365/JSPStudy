@@ -1,0 +1,19 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% 
+SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+
+long creationTime = session.getCreationTime();
+String creatioinTimeStr = dateFormat.format(new Date(creationTime));
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>
