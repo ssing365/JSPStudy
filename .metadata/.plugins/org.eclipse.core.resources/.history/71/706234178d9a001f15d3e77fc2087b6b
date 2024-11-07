@@ -1,5 +1,0 @@
-package common;
-
-public class JDBConnect {
-	public JDBConnect(String driver, String url, String id, String pwd){}
-}
