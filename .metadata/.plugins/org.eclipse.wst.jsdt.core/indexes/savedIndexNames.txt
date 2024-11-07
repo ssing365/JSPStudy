@@ -1,9 +1,0 @@
-INDEX VERSION 1.4+C:\workspace\JSPStudy\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1163528595.index
-131556694.index
-123825482.index
-1292157281.index
-120577724.index
-301595892.index
-3108019235.index
-4158899821.index

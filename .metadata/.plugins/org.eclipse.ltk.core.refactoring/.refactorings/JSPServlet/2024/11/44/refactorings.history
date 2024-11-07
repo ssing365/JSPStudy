@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;JSPServlet/src/main/webapp/10EL&apos; to &apos;08EL&apos;" description="Rename resource &apos;10EL&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/10EL" name="08EL" stamp="1730422228864" updateReferences="true"/>
-</session>
