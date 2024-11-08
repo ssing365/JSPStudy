@@ -28,7 +28,7 @@ public class FrontController extends HttpServlet {
 
 		/*
 	     * 마지막 요청명을 통해 요청을 판단한 후 해당 요청을 처리할 메서드를 호출한다.
-	     * 이때 사용자의 요청정보를 답고있는 request내장객체를 인수로 전달한다.
+	     * 이때 사용자의 요청정보를 담고있는 request내장객체를 인수로 전달한다.
 	     * 즉 사용자의 모든 요청을 메서드로 전달하는것이다.
 	     */
 		if (commandStr.equals("/regist.one"))
