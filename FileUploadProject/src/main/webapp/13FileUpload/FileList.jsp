@@ -30,21 +30,21 @@
 			<th>원본 파일명</th>
 			<th>저장된 파일명</th>
 			<th>작성일</th>
+			<th></th>
 		</tr>
 	<%
 	for(MyFileDTO f : fileLists){ 
 	%>
 		<tr>
+			<td><%= f.getIdx() %></td>
 			<td><%= f.getTitle() %></td>
 			<td><%= f.getCate() %></td>
 			<td><%= f.getOfile() %></td>
-			<td><%= f.getSfile()%></td>
-			<td><a href="Download.jsp?oName=<%= URLEncoder.encode(f.getOfile(), "UTF-8") %>&sName=<%= URLEncoder.encode(f.getSfile(), "UTF-8")%>">다운로드</a>
-			</td>
+			<td><%= f.getSfile() %></td>
+			<td><%= f.getDate() %></td>
+			<td><a href="Download.jsp?oName=<%= URLEncoder.encode(f.getOfile(), "UTF-8") %>&sName=<%= URLEncoder.encode(f.getSfile(), "UTF-8")%>">다운로드</a></td>
 		</tr>
-	<%
-	}
-	%>
+	<%}%>
 	</table>
 </body>
 </html>

@@ -9,11 +9,11 @@
         <% } else { %>
             <a href="../06Session/Logout.jsp">로그아웃</a>
         <% } %>
-            <!-- 8장과 9장의 회원제 게시판 프로젝트에서 사용할 링크 -->
+            <!-- 모델2방식의 파일첨부 게시판 -->
             &nbsp;&nbsp;&nbsp; 
-            <a href="../08Board/List.jsp">게시판(페이징X)</a>
+            <a href="../mvcboard/list.do">게시판(페이징X)</a>
             &nbsp;&nbsp;&nbsp; 
-            <a href="../09PagingBoard/List.jsp">게시판(페이징O)</a>
+            <a href="../mvcboard/listPage.do">게시판(페이징O)</a>
         </td>
     </tr>
 </table>

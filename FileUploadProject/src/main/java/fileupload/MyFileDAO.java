@@ -53,10 +53,14 @@ public class MyFileDAO extends JDBConnect{
 			while(rs.next()) {
 				MyFileDTO dto = new MyFileDTO();
 				
-				dto.setTitle(rs.getString(1));
-				dto.setCate(rs.getString(2));
+				dto.setIdx(rs.getString(1));
+				dto.setTitle(rs.getString(2));
 				dto.setCate(rs.getString(3));
 				dto.setOfile(rs.getString(4));
+				dto.setSfile(rs.getString(5));
+				dto.setDate(rs.getString(6));
+				
+				fileList.add(dto);
 				
 			}
 		}

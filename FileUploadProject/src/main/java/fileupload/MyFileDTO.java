@@ -1,11 +1,19 @@
 package fileupload;
 
 public class MyFileDTO {
+	private String idx;
 	private String title;
 	private String cate;
 	private String ofile;
 	private String sfile;
+	private String postdate;
 	
+	public String getIdx() {
+		return idx;
+	}
+	public void setIdx(String idx) {
+		this.idx = idx;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -29,5 +37,11 @@ public class MyFileDTO {
 	}
 	public void setSfile(String sfile) {
 		this.sfile = sfile;
+	}
+	public String getDate() {
+		return postdate;
+	}
+	public void setDate(String postdate) {
+		this.postdate = postdate;
 	}
 }
