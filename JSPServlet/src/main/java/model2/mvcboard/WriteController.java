@@ -61,6 +61,7 @@ public class WriteController extends HttpServlet{
 		catch (Exception e) {
 			//문제가 있는 경우 예외처리
 			JSFunction.alertLocation(resp, "파일업로드 오류입니다.", "../mvcboard/write.do");
+			e.printStackTrace();
 			return;
 		}
 		

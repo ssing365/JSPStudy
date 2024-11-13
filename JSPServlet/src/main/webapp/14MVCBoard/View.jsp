@@ -26,7 +26,7 @@
 		<tr>
 			<td>작성일</td>
 			<td>${dto.postdate }</td>
-			<td>조회수 ${ext}</td>
+			<td>조회수</td>
 			<td>${dto.visitcount}</td>
 		</tr>
 		<tr>
@@ -35,9 +35,11 @@
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td colspan="3" height="100">${dto.content }
-			<!-- 게시물 작성시 등록한 첨부파일이 있는 경우 -->
-			<c:if test="${not empty dto.ofile}">
+			<td colspan="3" height="100">
+				${dto.content }
+				<!-- 게시물 작성시 등록한 첨부파일이 있는 경우 -->
+				<c:if test="${not empty dto.ofile}">
+				<br />
 				<c:choose>	
 					<c:when test="${mimeType eq 'img' }">
 						<!-- 이미지출력 -->
@@ -49,10 +51,11 @@
 							<source src="../Uploads/${dto.sfile }" type="audio/mp3" />
 						</audio>
 					</c:when>
-					<c:when test='${ mimeType eq "video" }' >
-					<!-- 동영상 출력 -->
-					<br>
-					<video src="../Uploads/${dto.sfile }" controls type="video/mp4">
+					<c:when test="${ mimeType eq 'video' }" >
+						<!-- 동영상 출력 -->
+						<video controls >
+							<source src="../Uploads/${dto.sfile }" type="video/mp4"/>
+							Your browser does not support the video tag.
 						</video>
 					</c:when>
 				</c:choose> 
@@ -62,13 +65,12 @@
 		<tr>
 			<td>첨부파일</td>
 			<td>
-				<!-- 첨부한 파일이 있다면 다운로드 링크를 출력한다. --> <c:if
-					test="${not empty dto.ofile }">
-        	${dto.ofile }
-        	<!-- 링크는 반드시 공백없이 한줄로! -->
-					<a
-						href="../mvcboard/download.do?ofile=${dto.ofile }&sfile=${dto.sfile}&idx=${dto.idx}">
-						[다운로드] </a>
+				<!-- 첨부한 파일이 있다면 다운로드 링크를 출력한다. --> 
+				<c:if test="${ not empty dto.ofile }">
+        		${dto.ofile }
+        			<!-- 링크는 반드시 공백없이 한줄로! -->
+					<a href="../mvcboard/download.do?ofile=${dto.ofile }&sfile=${dto.sfile}&idx=${dto.idx}">
+					[다운로드] </a>
 				</c:if>
 			</td>
 			<td>다운로드수</td>
@@ -77,12 +79,13 @@
 		<tr>
 			<td colspan="4" align="center">
 				<button type="button"
-					onclick="location.href = '../mvcboard/edit.do?idx=${param.idx}';">
+					onclick="location.href='../mvcboard/edit.do?idx=${param.idx}';">
 					수정하기</button>
 				<button type="button"
 					onclick="location.href='../mvcboard/delete.do?idx=${param.idx}';">
 					삭제하기</button>
-				<button type="button" onclick="location.href='../mvcboard/list.do';">
+				<button type="button" 
+					onclick="location.href='../mvcboard/list.do';">
 					목록 바로가기</button>
 			</td>
 		</tr>
@@ -90,8 +93,6 @@
 </body>
 </html>
 <h3>퀴즈 1 삭제 컨펌</h3>
-
-
 <script>
             function deleteConfirm(idx){
             	let c = confirm("게시물을 삭제하시겠습니까?")

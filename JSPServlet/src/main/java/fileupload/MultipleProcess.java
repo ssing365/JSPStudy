@@ -14,8 +14,8 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/13FileUpload/MultipleProcess.do")
 //업로드 제한 용량
 @MultipartConfig(
-		maxFileSize = 1024 * 1024 * 10,
-		maxRequestSize = 1024 * 1024 * 100
+		maxFileSize = 1024 * 1024 * 30,
+		maxRequestSize = 1024 * 1024 * 300
 )
 public class MultipleProcess extends HttpServlet{
 	private static final long serialVersionUID = 1L;

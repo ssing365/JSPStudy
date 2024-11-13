@@ -19,8 +19,8 @@ import jakarta.servlet.http.HttpServletResponse;
  * maxRequestSize : 첨부할 전체 파일의 용량을 10Mb로 지정
  */
 @MultipartConfig(
-		maxFileSize = 1024 * 1024 * 10,
-		maxRequestSize = 1024 * 1024 * 100
+		maxFileSize = 1024 * 1024 * 30,
+		maxRequestSize = 1024 * 1024 * 300
 )
 public class UploadProcess extends HttpServlet{
 	private static final long serialVersionUID = 1L;

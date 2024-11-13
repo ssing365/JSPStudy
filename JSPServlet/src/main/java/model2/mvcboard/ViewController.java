@@ -33,6 +33,10 @@ public class ViewController extends HttpServlet{
 		//줄바꿈 처리 : 웹브라우저에서 출력할 때는 <br>태그로 변경해야한다.
 		dto.setContent(dto.getContent().replaceAll("\r\n", "<br/>"));
 		
+		//게시물(dto)저장 후 뷰로 포워드
+		req.setAttribute("dto", dto);
+		req.getRequestDispatcher("/14MVCBoard/View.jsp").forward(req, resp);
+		
 		//첨부파일 확장자 추출 및 이미지 타입 확인
 		String ext = null, fileName = dto.getSfile(), mimeType = null;
 		if(fileName != null) {
@@ -44,27 +48,24 @@ public class ViewController extends HttpServlet{
 		String[] extArray3 = {"mp4", "avi", "wmv"};
 		
 		if(mimeContains(extArray1, ext)) {
-			mimeType = "img";
-			
-		}else if (mimeContains(extArray2, ext)) {
+			mimeType = "img";	
+		}
+		else if (mimeContains(extArray2, ext)) {
 			mimeType = "audio";
-		}else if(mimeContains(extArray3, ext)) {
+		}
+		else if(mimeContains(extArray3, ext)) {
 			mimeType = "video";
 		}
-		System.out.println("MIME타입 = "+mimeType);
+		System.out.println("MIME타입 = "+ mimeType);
 		req.setAttribute("mimeType", mimeType);
-		
-		//게시물(dto)저장 후 뷰로 포워드
-		req.setAttribute("dto", dto);
-		req.getRequestDispatcher("/14MVCBoard/View.jsp").forward(req, resp);
 	}
 	
 	public boolean mimeContains(String[] strArr, String ext) {
 		boolean retValue = false;
 		for(String s : strArr) {
-			if(s.equalsIgnoreCase(ext)) retValue = true;
+			if(s.equalsIgnoreCase(ext)) 
+				retValue = true;
 		}
 		return retValue;
 	}
-
 }
