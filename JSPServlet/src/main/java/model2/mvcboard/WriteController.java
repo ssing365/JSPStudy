@@ -79,7 +79,7 @@ public class WriteController extends HttpServlet{
 			//파일명 변경
 			String savedFileName = FileUtil.renameFile(saveDirectory, originalFileName);
 			
-			//파일업로드가 완료되었따면 파일정보를 DTO에 추가한다.
+			//파일업로드가 완료되었다면 파일정보를 DTO에 추가한다.
 			dto.setOfile(originalFileName); //원래 파일 이름
 			dto.setSfile(savedFileName); //서버에 저장된 파일 이름
 		}
@@ -88,6 +88,15 @@ public class WriteController extends HttpServlet{
 		MVCBoardDAO dao = new MVCBoardDAO();
 		//입력에 성공하면 1, 실패하면 0이 반환된다. (insert는 하나가 추가되거나 아니거나기 때문)
 		int result = dao.insertWrite(dto);
+		
+		/***********************************
+		//페이징을 위한 더미데이터 100개 입력하기
+		for(int i=1; i<=100; i++) {
+			dto.setTitle(req.getParameter("title")+"-"+i);
+			dao.insertWrite(dto);
+		}
+		***********************************/
+		
 		dao.close();
 		
 		//성공 or 실패?

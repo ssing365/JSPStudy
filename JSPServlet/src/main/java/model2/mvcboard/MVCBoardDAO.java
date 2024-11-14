@@ -251,4 +251,50 @@ public class MVCBoardDAO extends DBConnPool {
 		}
 		return result;
 	}
+	
+	public List<MVCBoardDTO> selectListPage(
+			Map<String,Object> map){
+		List<MVCBoardDTO> board = new Vector<MVCBoardDTO>();
+		String query =
+				"select * from ("
+				+ "    select tb.*, rownum rNum from("
+				+ "        select * from mvcboard";
+		if(map.get("searchWord") != null) {
+			query += "WHERE " +map.get("searchField")
+			+ " LIKE '%" + map.get("searchWord") + "%'";
+		}
+		query += " order by idx desc "
+				+ " ) Tb "
+				+ " ) "
+				+ " where rNum between ? and ? ";
+		
+		try {
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, map.get("start").toString());
+			psmt.setString(2, map.get("end").toString());
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				MVCBoardDTO dto = new MVCBoardDTO();
+				
+				dto.setIdx(rs.getString(1));
+				dto.setId(rs.getString(2));
+				dto.setTitle(rs.getString(3));
+				dto.setContent(rs.getString(4));
+				dto.setPostdate(rs.getDate(5));
+				dto.setOfile(rs.getString(6));
+				dto.setSfile(rs.getString(7));
+				dto.setDowncount(rs.getInt(8));
+				dto.setVisitcount(rs.getInt(9));
+				
+				board.add(dto);
+			}
+		}
+		catch (Exception e) {
+			System.out.println("게시물 조회 중 예외 발생");
+			e.printStackTrace();
+		}
+		return board;
+	}
+	
 }

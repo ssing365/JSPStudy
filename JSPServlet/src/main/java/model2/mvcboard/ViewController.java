@@ -35,7 +35,6 @@ public class ViewController extends HttpServlet{
 		
 		//게시물(dto)저장 후 뷰로 포워드
 		req.setAttribute("dto", dto);
-		req.getRequestDispatcher("/14MVCBoard/View.jsp").forward(req, resp);
 		
 		//첨부파일 확장자 추출 및 이미지 타입 확인
 		String ext = null, fileName = dto.getSfile(), mimeType = null;
@@ -58,6 +57,8 @@ public class ViewController extends HttpServlet{
 		}
 		System.out.println("MIME타입 = "+ mimeType);
 		req.setAttribute("mimeType", mimeType);
+
+		req.getRequestDispatcher("/14MVCBoard/View.jsp").forward(req, resp);
 	}
 	
 	public boolean mimeContains(String[] strArr, String ext) {
